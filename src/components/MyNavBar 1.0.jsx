@@ -10,8 +10,6 @@ import {
   Modal,
 } from "react-bootstrap";
 
-import Gallery from "./GalleryS";
-
 class MyNavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +39,6 @@ class MyNavBar extends React.Component {
       );
 
       response = await response.json();
-      this.setState({ movies: response.Search });
       this.handleToggle();
     } catch (error) {
       console.log(error);
@@ -100,9 +97,7 @@ class MyNavBar extends React.Component {
           <Modal.Header closeButton>
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <Gallery search={this.state.movies} />
-          </Modal.Body>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={this.handleToggle}>
               Close

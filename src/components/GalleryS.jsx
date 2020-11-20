@@ -3,32 +3,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { CardGroup, Card, Row, Col } from "react-bootstrap";
 
-class Gallery2 extends React.Component {
+class Gallery extends React.Component {
   state = {
     movies: [],
-    search: "fast furious",
-    type: "movie",
   };
 
-  componentDidMount = async () => {
-    try {
-      let response = await fetch(
-        "http://www.omdbapi.com/?&s=" +
-          this.state.search +
-          "&apikey=ee4589ef&type=" +
-          this.state.type
-      );
-      let movies = await response.json();
-      this.setState({ movies: movies.Search });
-    } catch (error) {
-      console.log(error);
+  componentDidMount = (props) => {
+    if (this.props.movies) {
+      this.setState({ movies: this.props.movies });
+    } else {
+      console.log("error");
     }
   };
   render() {
     return (
       <Row>
-        <h2 className="d-block">{this.state.search}</h2>
-
         {this.state.movies.map((movie, index) => (
           <Col
             className="d-flex justify-content-center mt-2 mb-5"
@@ -57,4 +46,4 @@ class Gallery2 extends React.Component {
   }
 }
 
-export default Gallery2;
+export default Gallery;
