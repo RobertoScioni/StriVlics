@@ -24,10 +24,10 @@ class Gallery extends React.Component {
   render() {
     return (
       <Row>
-        <CardGroup>
+        
           {this.state.movies.map((movie, index) => (
-            <Col className="d-flex justify-content-center" md={3}>
-              <Card key={index}>
+            <Col className="d-flex justify-content-center mb-3" md={4} lg={3} key={index}>
+              <Card >
                 <Card.Img
                   variant="top"
                   style={{ width: 300, height: 400 }}
@@ -43,7 +43,7 @@ class Gallery extends React.Component {
               </Card>
             </Col>
           ))}
-        </CardGroup>
+        
       </Row>
     );
   }

@@ -112,6 +112,11 @@ h3 {
 .card {
   background-color: black;
   color: #ced4da;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform:scale(1.1);
+  box-shadow:  0 8px 10px 0 rgba(255, 254, 254, 0.2), 0 10px 40px 0 rgba(255, 236, 236, 0.19);
 }
 
 /*
