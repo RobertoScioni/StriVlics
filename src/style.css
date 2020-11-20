@@ -95,23 +95,25 @@ h3 {
   color: red;
 }
 
-.social-link i{
+.social-link i {
   font-size: 27px;
-  
-  color:grey; 
+
+  color: grey;
 }
-.social-link{
+.social-link {
   margin-right: 15px;
 }
 
-
 .wrap-links {
-  width:900px;
-  height:400px;
+  width: 900px;
+  height: 400px;
 }
- 
 
- 
+.card {
+  background-color: black;
+  color: #ced4da;
+}
+
 /*
 #title {
   width: 100%;
