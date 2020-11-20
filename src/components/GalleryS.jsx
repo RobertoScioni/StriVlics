@@ -9,11 +9,7 @@ class Gallery extends React.Component {
 	}
 
 	componentDidMount = (props) => {
-		if (this.props.movies) {
-			this.setState({ movies: this.props.movies })
-		} else {
-			console.log("error")
-		}
+		this.setState({ movies: this.props.movies })
 	}
 	render() {
 		return (
@@ -21,8 +17,8 @@ class Gallery extends React.Component {
 				{this.state.movies.map((movie, index) => (
 					<Col
 						className="d-flex justify-content-center mt-2 mb-5"
-						md={4}
-						lg={3}
+						md={5}
+						lg={4}
 						key={index}
 					>
 						<Card>
