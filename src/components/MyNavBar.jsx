@@ -6,6 +6,7 @@ import {
   Button,
   Form,
   FormControl,
+  Image,
 } from "react-bootstrap";
 
 class MyNavBar extends React.Component {
@@ -24,12 +25,14 @@ class MyNavBar extends React.Component {
     const key = "&apikey=c4555b36";
 
     try {
-      let response = await fetch(`http://www.omdbapi.com/?s=lord${key}`, {
-        method: "GET",
-      });
+      let response = await fetch(
+        `http://www.omdbapi.com/?s=${this.state.query}${key}`,
+        {
+          method: "GET",
+        }
+      );
 
       response = await response.json();
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -39,9 +42,11 @@ class MyNavBar extends React.Component {
     return (
       <Navbar variant="dark">
         <Navbar.Brand href="#home">
-          <img
-            src={require("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/220px-Image_created_with_a_mobile_phone.png")}
-          ></img>
+          <Image
+            src="/assets/Netflix-Logo.wine.png"
+            style={{ height: "50px" }}
+            rounded
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

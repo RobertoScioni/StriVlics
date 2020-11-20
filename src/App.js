@@ -8,8 +8,10 @@ class App extends React.Component {
   render () {
     
     return (
+      <>
       <MyNavBar/>
       <Gallery search="fast" type="movie" />
+      </>
     )
   }
 }
