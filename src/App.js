@@ -12,11 +12,11 @@ class App extends React.Component {
     return (
       <>
       <MyNavBar/>
+
+
       <Gallery search="" type=" series" />
       <Gallery2  />
-   
-    
-      </>
+       </>
     )
   }
 }
