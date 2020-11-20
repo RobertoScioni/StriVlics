@@ -1,12 +1,13 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Carousel from "react-elastic-carousel";
-import { Card, Row, Container } from "react-bootstrap";
+import { Card, Row, Container, Spinner } from "react-bootstrap";
 
 class Gallery extends React.Component {
   state = {
     movies: [],
     search: "harry potter",
+    loading: true,
   };
 
   componentDidMount = async () => {
@@ -19,7 +20,7 @@ class Gallery extends React.Component {
             this.props.type
         );
         let movies = await response.json();
-        this.setState({ movies: movies.Search });
+        this.setState({ movies: movies.Search, loading: false });
       } else {
         let response = await fetch(
           "http://www.omdbapi.com/?&s=" +
@@ -28,15 +29,22 @@ class Gallery extends React.Component {
             this.props.type
         );
         let movies = await response.json();
-        this.setState({ movies: movies.Search });
+        this.setState({ movies: movies.Search, loading: false });
       }
     } catch (error) {
       console.log(error);
+      this.setState({ loading: false });
     }
   };
   render() {
     return (
       <Container fluid>
+        {this.state.loading && (
+          <div className="font-bold d-flex justify-content-center">
+            <span>Feching Movies</span>
+            <Spinner animation="border" variant="success" />
+          </div>
+        )}
         {this.props.search ? (
           <h1 style={{ marginLeft: 85 }}>{this.props.search}</h1>
         ) : (
