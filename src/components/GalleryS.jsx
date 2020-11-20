@@ -1,12 +1,13 @@
-import React from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import { CardGroup, Card, Row, Col, Alert } from "react-bootstrap"
 
 class Gallery extends React.Component {
-	state = {
-		movies: [],
-	}
+  state = {
+    movies: [],
+    loading: true,
+  };
 
 	componentDidMount = (props) => {
 		this.setState({ movies: this.props.movies })
@@ -46,4 +47,4 @@ class Gallery extends React.Component {
 	}
 }
 
-export default Gallery
+export default Gallery;
