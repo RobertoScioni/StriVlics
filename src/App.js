@@ -1,26 +1,21 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import './style.css';
-import Gallery from './components/Gallery'
-import Gallery2 from './components/Gallery2'
-import Gallery3 from './components/Gallery3'
-
-import MyNavBar from "./components/MyNavBar"
+import React from "react"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "./App.css"
+import "./style.css"
+import Home from "./components/home"
+import ShowDetail from "./components/ShowDetail"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 class App extends React.Component {
-  render () {
-    
-    return (
-      <>
-      <MyNavBar/>
-
-
-      <Gallery search="" type="" />
-      <Gallery2  />
-      <Gallery3 />
-       </>
-    )
-  }
+	render() {
+		return (
+			<>
+				<Router>
+					<Route path="/" exact render={(props) => <Home {...props} />} />
+					<Route path="/details/:id" component={ShowDetail} />
+				</Router>
+			</>
+		)
+	}
 }
 
-export default App;
+export default App
