@@ -11,7 +11,8 @@ class Home extends React.Component {
 		return (
 			<>
 				<MyNavBar />
-				<Gallery search="" type="" history={this.props.history} />
+				<h1>{this.props.title}</h1>
+				<Gallery search="" type="" />
 				<Gallery search="fast and furious" type="" />
 				<Gallery search="the office" type="" />
 			</>

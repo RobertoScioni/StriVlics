@@ -9,8 +9,9 @@ import {
 	Image,
 	Modal,
 } from "react-bootstrap"
+import { withRouter } from "react-router-dom"
 
-import Gallery from "./GalleryS"
+import Gallery from "./Gallery"
 
 class MyNavBar extends React.Component {
 	constructor(props) {
@@ -27,6 +28,12 @@ class MyNavBar extends React.Component {
 
 	handleToggle = () => {
 		this.setState({ show: !this.state.show })
+	}
+
+	componentDidUpdate(oldProps) {
+		if (this.props.match.params.id !== oldProps.match.params.id) {
+			this.handleToggle()
+		}
 	}
 
 	getData = async () => {
@@ -47,7 +54,6 @@ class MyNavBar extends React.Component {
 			console.log(error)
 		}
 	}
-
 	render() {
 		return (
 			<>
@@ -69,7 +75,7 @@ class MyNavBar extends React.Component {
 								className="mr-sm-2"
 								onChange={this.handleEvent}
 							/>
-							<Button variant="outline-success" onClick={this.getData}>
+							<Button variant="outline-success" onClick={this.handleToggle}>
 								Search
 							</Button>
 						</Form>
@@ -80,7 +86,7 @@ class MyNavBar extends React.Component {
 						<Modal.Title>Search reuslt for : {this.state.query}</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-						<Gallery movies={this.state.movies} />
+						<Gallery search={this.state.query} type="" />
 					</Modal.Body>
 					<Modal.Footer></Modal.Footer>
 				</Modal>
@@ -89,4 +95,4 @@ class MyNavBar extends React.Component {
 	}
 }
 
-export default MyNavBar
+export default withRouter(MyNavBar)

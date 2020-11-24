@@ -2,7 +2,7 @@ import React from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Carousel from "react-elastic-carousel"
 import { Card, Row, Container, Spinner } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 
 class Gallery extends React.Component {
 	state = {
@@ -89,4 +89,4 @@ class Gallery extends React.Component {
 	}
 }
 
-export default Gallery
+export default withRouter(Gallery)

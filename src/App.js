@@ -10,7 +10,11 @@ class App extends React.Component {
 		return (
 			<>
 				<Router>
-					<Route path="/" exact render={(props) => <Home {...props} />} />
+					<Route
+						path="/"
+						exact
+						render={(props) => <Home title="HOME" {...props} />}
+					/>
 					<Route path="/details/:id" component={ShowDetail} />
 				</Router>
 			</>

@@ -37,6 +37,13 @@ class ShowDetail extends React.Component {
 		this.getMovie(this.state.id)
 	}
 
+	componentDidUpdate(oldProps) {
+		if (this.props.match.params.id !== oldProps.match.params.id) {
+			this.state = { id: this.props.match.params.id, movie: {} }
+			this.getMovie(this.state.id)
+		}
+	}
+
 	render(props) {
 		let movie = this.state.movie
 		return (
@@ -100,6 +107,16 @@ class ShowDetail extends React.Component {
 								<Col>
 									<p>Actors</p>
 									<div>{movie.Actors}</div>
+									{/*Array.from(movie.Writer).map((writer) => (
+											writer
+                                        ))*/}
+								</Col>
+							</Row>
+
+							<Row mt="2rem">
+								<Col>
+									<p>Summary</p>
+									<div>{movie.Plot}</div>
 									{/*Array.from(movie.Writer).map((writer) => (
 											writer
                                         ))*/}
