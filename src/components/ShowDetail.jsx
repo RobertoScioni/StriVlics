@@ -8,6 +8,7 @@ import {
 	Row,
 } from "react-bootstrap"
 import MyNavBar from "./MyNavBar"
+import Comments from "./Comments"
 
 /*
  * Create ShowDetail component that receives from route parameter the ID
@@ -27,7 +28,7 @@ class ShowDetail extends React.Component {
 			)
 			response = await response.json()
 			this.setState({ movie: response })
-			console.log(response)
+			//console.log(response)
 		} catch (error) {
 			console.error(error)
 		}
@@ -125,6 +126,7 @@ class ShowDetail extends React.Component {
 						</Col>
 					</Row>
 				</Container>
+				<Comments id={this.state.id} />
 				<footer>detail page for {this.state.id}</footer>
 			</>
 		)
