@@ -2,119 +2,77 @@
 <html>
 	<head></head>
 	<body>
-		<h2>Netflix, Navigation</h2>
+		<h2>Netflix, Register</h2>
 
-		<h4>
-			In this exercise you'll apply your new knowledge about react-router-dom.
-			Remember to install the package from npm (npm i react-router-dom).
-		</h4>
+		<h4>Use your React skills to improve your existing projects.</h4>
 
-		<h1>Netflix App - Router</h1>
+		<h1>Netflix App</h1>
 		<ol>
-			<li>Create a Router to navigate to a ShowDetail component</li>
 			<li>
-				Create ShowDetail component that receives from route parameter the ID
-				and fetch all the informations (from omdb & comments too)
+				Create a new Registration Component and create a new route /register and
+				a button in the navbar to get there
 			</li>
 			<li>
-				Change every Show (Movie or Series) to be clickable and to redirect to
-				the ShowDetail component
+				In the Registration Component, create a Controlled Form with:
+				<ul>
+					<li>Name - Required, at least 2 chars</li>
+					<li>Surname - Required, at least 3 chars</li>
+					<li>Email - Required - Should be an email field</li>
+					<li>
+						Password - Required - Should contain at least 8 chars, 1 digit, 1
+						letter
+					</li>
+					<li>Year of Birth - Required - from 1910+</li>
+					<li>Street Address - Required</li>
+					<li>City - Required</li>
+					<li>Postal Code - Required - Numeric 5 digits</li>
+					<li>Credit card - XXXX-XXXX-XXXX-XXXX (EXTRA)</li>
+				</ul>
 			</li>
 			<li>
-				Make it so that every page component receives its title from the App
-				component as a prop and use it in an "h1".
+				All the messages / errors should be displayed properly on the page
+			</li>
+			<li>
+				The submit button from the form should be "ENABLED" only when the form
+				is actually OK. When clicked it should display a recap of the
+				information submitted (you choose if this recap should be just a
+				component dinamically rendered in the current route or a component
+				mounted on a different route with a redirect).
+			</li>
+			<li>
+				[EXTRA] Transform the "AddComment" component into a Controlled Form
 			</li>
 		</ol>
 
-		<h1>EXTRA</h1>
+		<h1>EXTRA - Strive Books</h1>
 		<ul>
 			<li>
-				Add a Link for TV Shows in the Navbar to navigate to a TV Shows
-				component that you create.
+				Create a new Registration Component and create a new route /register and
+				a button in the navbar to get there
 			</li>
 			<li>
-				Pass a route parameter named "series" with the TV Shows component route
-				and use it for querying APIs like: ?s={series}&type={series}.
+				In the Registration Component, create a Controlled Form with:
+				<ul>
+					<li>Name - Required, at least 2 chars</li>
+					<li>Surname - Required, at least 3 chars</li>
+					<li>Email - Required - Should be an email field</li>
+					<li>
+						Password - Required - Should contain at least 8 chars, 1 digit, 1
+						letter
+					</li>
+					<li>PasswordConfirm - Required - Should be equal than Password</li>
+				</ul>
 			</li>
-			<li>Display results accordingly</li>
-			<li>Link every show in the result with the detail page</li>
-			<li>Add loaders / empty states</li>
+			<li>
+				All the messages / errors should be displayed properly on the page
+			</li>
+			<li>
+				The submit button from the form should be "ENABLED" only when the form
+				is actually OK. When clicked it should display a recap of the
+				information submitted (you choose if this recap should be just a
+				component dinamically rendered in the current route or a component
+				mounted on a different route with a redirect).
+			</li>
 		</ul>
-		<pre>
-      _______________________________________________________________________________________
-      <code>
-        API INFO:
-
-        Register to http://www.omdbapi.com/
-
-        Once registered, you'll receive via email an api key.
-        The API has a detail method:
-
-        http://www.omdbapi.com/?apikey=[YOUR API KEY]&i=tt0241527
-       
-        That gives you extra info about a movie:
-
-        {
-            "Title": "Harry Potter and the Sorcerer's Stone",
-            "Year": "2001",
-            "Rated": "PG",
-            "Released": "16 Nov 2001",
-            "Runtime": "152 min",
-            "Genre": "Adventure, Family, Fantasy",
-            "Director": "Chris Columbus",
-            "Writer": "J.K. Rowling (novel), Steve Kloves (screenplay)",
-            "Actors": "Richard Harris, Maggie Smith, Robbie Coltrane, Saunders Triplets",
-            "Plot": "An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.",
-            "Language": "English",
-            "Country": "UK, USA",
-            "Awards": "Nominated for 3 Oscars. Another 17 wins & 62 nominations.",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg",
-            "Ratings": [
-                {
-                    "Source": "Internet Movie Database",
-                    "Value": "7.6/10"
-                },
-                {
-                    "Source": "Rotten Tomatoes",
-                    "Value": "81%"
-                },
-                {
-                    "Source": "Metacritic",
-                    "Value": "64/100"
-                }
-            ],
-            "Metascore": "64",
-            "imdbRating": "7.6",
-            "imdbVotes": "572,463",
-            "imdbID": "tt0241527",
-            "Type": "movie",
-            "DVD": "28 May 2002",
-            "BoxOffice": "$317,557,891",
-            "Production": "Warner Bros. Pictures",
-            "Website": "http://movies.warnerbros.com/awards/harry.html",
-            "Response": "True"
-        }
-
-        You have a CRUD endpoint for comments on:
-
-        https://striveschool-api.herokuapp.com/api/comments/
-
-        This means you can GET, DELETE, POST, PUT data from there.
-
-        The Comment structure is this:
-
-        {
-          "comment": "A good movie but definitely I don't like many parts of the plot",
-          "rate": 3,
-          "elementId": "tt1756545"
-        }
-
-        Where:
-        - comment is the comment inserted by the user
-        - rate is a value between 1 and 5
-        - elementId is the imdbID of the movie / serie
-
-      </code>
-    </pre>
 	</body>
 </html>
