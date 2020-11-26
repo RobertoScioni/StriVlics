@@ -43,7 +43,7 @@ class Register extends React.Component {
 								<Form.Control
 									id="birthDate"
 									type="datetime-local"
-									min="1910:01:01:00:00"
+									min="1910:01:01:01:00"
 									required
 									aria-required
 								/>
